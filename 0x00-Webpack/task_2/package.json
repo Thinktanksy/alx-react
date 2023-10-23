@@ -9,15 +9,12 @@
     "build": "webpack --mode production"
   },
   "keywords": [
-    "asset",
-    "compilation",
-    "entry",
-    "points",
+     "asset_compilation",
+    "entry_points",
     "javascript",
     "loaders",
     "output",
-    "webpack",
-    "plugins"
+    "webpack_plugins"
   ],
   "author": "Joseph Williams",
   "license": "ISC",
