@@ -1,5 +1,4 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'production',
@@ -15,21 +14,21 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"], // Use MiniCssExtractPlugin for production
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
           "file-loader",
-          // You can enable image optimization here if needed
-          // "image-webpack-loader",
+          {
+            loader: "image-webpack-loader",
+            options: {
+              bypassOnDebug: true, // webpack@1.x
+              disable: true, // webpack@2.x and newer
+            },
+          },
         ],
       },
     ],
   },
-  plugins: [
-    new MiniCssExtractPlugin({ // Add this plugin to extract CSS
-      filename: 'styles.css',
-    }),
-  ],
 };
